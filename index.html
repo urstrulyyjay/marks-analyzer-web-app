@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Performance Analyzer</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Charts + PDF -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <i data-lucide="bar-chart-3"></i>
+      <div>
+        <h1>Student Performance Analyzer</h1>
+        <p>Modern academic analytics dashboard</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="downloadCSV" class="btn ghost">Download CSV</button>
+      <button id="exportPDF" class="btn ghost">Export PDF</button>
+      <button id="clearAll" class="btn danger">Clear</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT PANEL -->
+    <section class="card input-panel">
+      <h2>Input Panel</h2>
+      <div class="form-grid">
+        <label>Student Name <input id="studentName" type="text" placeholder="Enter name" /></label>
+        <label>Roll Number <input id="rollNumber" type="text" placeholder="Enter roll no." /></label>
+
+        <label>Math <input class="mark" id="sub1" type="number" min="0" max="100" /></label>
+        <label>Science <input class="mark" id="sub2" type="number" min="0" max="100" /></label>
+        <label>English <input class="mark" id="sub3" type="number" min="0" max="100" /></label>
+        <label>Computer <input class="mark" id="sub4" type="number" min="0" max="100" /></label>
+        <label>Social <input class="mark" id="sub5" type="number" min="0" max="100" /></label>
+
+        <label>Grading Scheme
+          <select id="scheme">
+            <option value="default">Default (75/60/40)</option>
+            <option value="strict">Strict (85/70/50)</option>
+          </select>
+        </label>
+      </div>
+      <button id="analyzeBtn" class="btn primary full">Analyze Performance</button>
+    </section>
+
+    <!-- RIGHT PANEL -->
+    <section class="results">
+      <!-- Summary -->
+      <div class="summary-grid">
+        <article class="card summary" id="cardTotal"><span>Total Marks</span><strong id="total">0</strong></article>
+        <article class="card summary" id="cardPercent"><span>Percentage</span><strong id="percentage">0%</strong></article>
+        <article class="card summary" id="cardGrade"><span>Grade</span><strong id="grade">-</strong></article>
+        <article class="card summary" id="cardRemark"><span>Remark</span><strong id="remark">-</strong></article>
+      </div>
+
+      <!-- Charts -->
+      <div class="chart-grid">
+        <article class="card">
+          <h3>Subject Comparison</h3>
+          <canvas id="barChart"></canvas>
+        </article>
+        <article class="card">
+          <h3>Overall Progress</h3>
+          <canvas id="donutChart"></canvas>
+        </article>
+      </div>
+
+      <!-- Insights -->
+      <article class="card insights">
+        <h3>Insights</h3>
+        <div class="insight-list">
+          <p><span>Highest Subject:</span> <b id="highest">-</b></p>
+          <p><span>Lowest Subject:</span> <b id="lowest">-</b></p>
+          <p><span>Suggestion:</span> <b id="suggestion">Add marks and analyze to view suggestions.</b></p>
+          <p><span>Status:</span> <span id="statusBadge" class="badge">Pending</span></p>
+        </div>
+      </article>
+
+      <!-- History -->
+      <article class="card">
+        <h3>Student History</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Roll</th><th>Total</th><th>%</th><th>Grade</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Copyrights are held by <strong>Your Name</strong>. All rights reserved.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
