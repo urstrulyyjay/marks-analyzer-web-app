@@ -4,6 +4,8 @@
 A modern web application that analyzes student marks, calculates total, percentage, and grade, and provides performance insights in a clean dashboard interface.
 
 🔗 Live App: https://urstrulyyjay.github.io/marks-analyzer-web-app/
+
+
 🔗 Repository: https://github.com/urstrulyyjay/marks-analyzer-web-app
 
 🚀 Features
@@ -21,6 +23,8 @@ A modern web application that analyzes student marks, calculates total, percenta
 ✅ Responsive layout
 
 ✅ Clear grade rules display
+
+
 
 🧠 Grade Rules
 Average	Grade
@@ -64,7 +68,10 @@ marks-analyzer-web-app/
 └── README.md
 
 
-(Modify if structure is different.)
+
+
+
+
 
 🎯 Purpose of This Project
 
@@ -80,6 +87,10 @@ UI layout structuring
 
 Deployment workflow
 
+
+
+
+
 🔮 Future Improvements
 
 📈 Add subject-wise performance charts
@@ -92,12 +103,19 @@ Deployment workflow
 
 📊 Advanced analytics dashboard
 
+
+
+
 👨‍💻 Author
 
 Jay Dhokne
 IT Student | Developer | Creative Technologist
 
 GitHub: https://github.com/urstrulyyjay
+
+
+
+
 
 ⭐ Show Support
 
